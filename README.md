@@ -8,7 +8,7 @@ Do not enable macro content before inspecting the code!
 
 https://github.com/HS-Datadesk/koronavirus-avoindata Excel datan nouto ja visualisointi.
 
-VBA koodi alla. Soluun on määritettävä solut Tapaukset sekä Paivitetty. Data tulee rivistä 11 lähtien sarakkeille A-F
+VBA koodi alla. On nimettävä solut Tapaukset =sum(A:A) sekä Paivitetty. Data kirjoitetaan rivistä 11 eteenpäin sarakkeille A-F
 ```
 Option Explicit
 
