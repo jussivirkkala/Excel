@@ -6,9 +6,9 @@ Do not enable macro content before inspecting the code!
 
 # HS-koronavirus-avoindata
 
-https://github.com/HS-Datadesk/koronavirus-avoindata Excel datan nouto ja visualisointi.
+https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi.
 
-VBA koodi alla. On nimettävä solut Tapaukset =sum(A:A) sekä Paivitetty. Data kirjoitetaan rivistä 11 eteenpäin sarakkeille A-F
+VBA koodi alla. On oltava nimettynä solu Tapaukset, jossa kaava =sum(A:A). Data kirjoitetaan rivistä 11 eteenpäin sarakkeille A-F
 ```
 Option Explicit
 
@@ -20,15 +20,11 @@ Option Explicit
 ' https://twitter.com/jussivirkkala
 ' 2020-03-13 First version
 
-Dim dialog As Boolean
-
 
 Sub Workbook_open()
-    dialog = False
     If MsgBox("Haluatko hakea  https://github.com/HS-Datadesk/koronavirus-avoindata 15 min välein. Excel oltava auki", vbYesNo) = vbYes Then
         Timer
     Else
-        dialog = True
         Update
     End If
 End Sub
@@ -36,8 +32,11 @@ End Sub
 
 Sub Timer()
     Update
+    On Error GoTo err:
     Application.OnTime Now + TimeValue("00:15:00"), "ThisWorkbook.Timer"
+err:
 End Sub
+
 
 
 Sub Update()
@@ -77,10 +76,8 @@ Sub Update()
     On Error GoTo err_other
     Application.CalculateFull
     If ActiveSheet.Range("Tapauksia") <> n Then
-        MsgBox "Tapaukset ovat lisäntyneet " + Format(ActiveSheet.Range("Tapauksia").Value - n) + _
-        " kappaletta edellisestä päivityksestä " + ActiveSheet.Range("Paivitetty").Text, , ActiveWorkbook.Name
+        MsgBox "Tapaukset ovat lisäntyneet " + Format(ActiveSheet.Range("Tapauksia").Value - n) + " kappaletta"
     End If
-    ActiveSheet.Range("Paivitetty") = datetime.Now
     Exit Sub
 err_get:
     MsgBox "Virhe lukea " + DATA
