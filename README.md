@@ -8,7 +8,7 @@ Do not enable macro content before inspecting the code!
 
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi.
 
-- 2020-03-14 Lisätty graafi. Jossain koneissa ei toimi "Virhe tulkita dataa: ActiveX component can't create object".
+- 2020-03-14 Lisätty graafi. Joissain koneissa ei toimi "Virhe tulkita dataa: ActiveX component can't create object".
 - 2020-03-13 Ensimmäinen versio. Automaattinen päivitys ei toimi ensimmäisellä kerralla makron hyväksynnän jälkeen.
 
 VBA koodi alla. On oltava nimettynä solu Tapaukset, jossa kaava =sum(A:A). Data kirjoitetaan rivistä 16 eteenpäin sarakkeille A-F
