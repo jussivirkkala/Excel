@@ -84,10 +84,10 @@ Sub Update()
     End If
     Exit Sub
 err_get:
-    MsgBox "Virhe lukea " + DATA + " :" + err.Description
+    MsgBox "Virhe lukea " + DATA + ": " + err.Description
     Exit Sub
 err_json:
-    MsgBox "Virhe tulkita dataa:", err.Description
+    MsgBox "Virhe tulkita dataa: " + err.Description
     Exit Sub
 err_other:
     MsgBox "Muu virhe: ", err.Description
