@@ -90,7 +90,7 @@ err_json:
     MsgBox "Virhe tulkita dataa: " + err.Description
     Exit Sub
 err_other:
-    MsgBox "Muu virhe: ", err.Description
+    MsgBox "Muu virhe: " + err.Description
 End Sub
 
 ' End
