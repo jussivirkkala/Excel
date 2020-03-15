@@ -8,7 +8,7 @@ Do not enable macro content before inspecting the code!
 
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi.
 
-- 2020-03-15 Lisätty välilehdet. Ei toimi myöskään Mac koneissa. Can't find project or library ServerXMLHTTP60
+- 2020-03-15 Puuttuvat id numerot eivät enään aiheuta tyhjiä rivit. Helpottaa lajittelua ja auto filter. Lisätty välilehdet. Ei toimi myöskään Mac koneissa. Can't find project or library ServerXMLHTTP60
 - 2020-03-14 Lisätty graafi. Joissain koneissa ei toimi "Virhe tulkita dataa: ActiveX component can't create object".
 - 2020-03-13 Ensimmäinen versio. Automaattinen ajastus ei toimi ensimmäisellä kerralla makron hyväksynnän jälkeen.
 
