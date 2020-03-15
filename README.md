@@ -8,10 +8,11 @@ Do not enable macro content before inspecting the code!
 
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi.
 
+- 2020-03-15 Lisätty välilehdet. Ei toimi myöskään Mac koneissa. Can't find project or library ServerXMLHTTP60
 - 2020-03-14 Lisätty graafi. Joissain koneissa ei toimi "Virhe tulkita dataa: ActiveX component can't create object".
 - 2020-03-13 Ensimmäinen versio. Automaattinen ajastus ei toimi ensimmäisellä kerralla makron hyväksynnän jälkeen.
 
-VBA koodi alla. On oltava nimettynä solu Tapaukset, jossa kaava =sum(A:A). Data kirjoitetaan rivistä 16 eteenpäin sarakkeille A-F
+VBA koodi alla. On oltava nimettynä solu Data väliehdellä Tapaukset, jossa kaava =sum(A:A). Data kirjoitetaan rivistä 2 eteenpäin sarakkeille A-F
 ```
 Option Explicit
 
@@ -21,10 +22,16 @@ Option Explicit
 '
 ' https://github.com/jussivirkkala/excel/
 ' https://twitter.com/jussivirkkala
-' 2020-03-13 First version
+'
+' 2020-03-15 Dialog for no cases. Time of last get.
 ' 2020-03-14 More error handling. Modified text.
+' 2020-03-13 First version
+
+Dim DIALOG As Boolean
+
 
 Sub Workbook_open()
+    DIALOG = True
     If MsgBox("Haluatko hakea https://github.com/HS-Datadesk/koronavirus-avoindata myös 15 min välein? Excel on oltava auki. Saat uusista tapauksista ilmoituksen.", _
     vbYesNo, Application.Name) = vbYes Then
         Timer
@@ -33,14 +40,17 @@ Sub Workbook_open()
     End If
 End Sub
 
+
 Sub Timer()
     Update
+    DIALOG = False
     On Error GoTo err:
     Application.OnTime Now + TimeValue("00:15:00"), "ThisWorkbook.Timer"
     Exit Sub
 err:
     MsgBox ("Ajastus ei onnistunut. Avaa tallennettu tiedosto uudestaan")
 End Sub
+
 
 Sub Update()
     Dim DATA As String
@@ -60,28 +70,35 @@ Sub Update()
     Set json = sc.Eval("(" + request.responseText + ")")
     
     Dim n As Long
-    n = ActiveSheet.Range("Tapauksia")
+    n = Sheets("Data").Range("Tapauksia")
         
     Dim row As Long
+    row = 1
     Dim subject As Object
+    Application.Calculation = xlCalculationManual
     For Each subject In CallByName(json, "confirmed", VbGet)
-        row = subject.id + 15
-        ActiveSheet.Cells(row, 1) = subject.id
+        row = row + 1
+        Sheets("Data").Cells(row, 1) = subject.id
         Dim d As String
         d = CallByName(subject, "date", VbGet)
-        ActiveSheet.Cells(row, 2) = d
-        ActiveSheet.Cells(row, 3) = subject.healthCareDistrict
-        ActiveSheet.Cells(row, 4) = subject.infectionSourceCountry
-        ActiveSheet.Cells(row, 5) = subject.infectionSource
-        ActiveSheet.Cells(row, 6) = DateValue(Mid(d, 1, 10)) + TimeValue(Mid(d, 12, 8))
+        Sheets("Data").Cells(row, 2) = d
+        Sheets("Data").Cells(row, 3) = subject.healthCareDistrict
+        Sheets("Data").Cells(row, 4) = subject.infectionSourceCountry
+        Sheets("Data").Cells(row, 5) = subject.infectionSource
+        Sheets("Data").Cells(row, 6) = DateValue(Mid(d, 1, 10)) + TimeValue(Mid(d, 12, 8))
     Next
 
     On Error GoTo err_other
+    Application.Calculation = xlCalculationAutomatic
     Application.CalculateFull
-    If ActiveSheet.Range("Tapauksia") <> n Then
-        MsgBox "Tapaukset ovat lisäntyneet " + Format(ActiveSheet.Range("Tapauksia").Value - n) + " kappaletta" _
-        , , Application.Name
+    If Sheets("Data").Range("Tapauksia") <> n Then
+        MsgBox "Tapaukset ovat lisäntyneet " + Format(Sheets("Data").Range("Tapauksia").Value - n) + " kappaletta " _
+        + Sheets("Data").Range("Paivitetty").Text + " jälkeen.", , Application.Name
+        Sheets("Data").Range("Paivitetty") = datetime.Now()
+    Else
+        If DIALOG Then MsgBox "Ei uusia tilastoituja tapauksia " + Sheets("Data").Range("Paivitetty").Text + " jälkeen.", , Application.Name
     End If
+    
     Exit Sub
 err_get:
     MsgBox "Virhe lukea " + DATA + ": " + err.Description
