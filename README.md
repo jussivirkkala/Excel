@@ -8,6 +8,7 @@ Do not enable macro content before inspecting the code!
 
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi.
 
+- 2020-03-16 Lisätty Päivitä painike. Lisätty sairaahoitopiirit Tilastot välilehdelle
 - 2020-03-15 Lisätty välilehdet. Puuttuvat id numerot eivät enää aiheuta tyhjiä riviä Data välilehdellä. Tämä helpottaa lajittelua ja auto filter käyttöä. Ei toimi myöskään Mac koneissa: Can't find project or library ServerXMLHTTP60
 - 2020-03-14 Lisätty graafi. Joissain koneissa ei toimi: "Virhe tulkita dataa: ActiveX component can't create object".
 - 2020-03-13 Ensimmäinen versio. Automaattinen ajastus ei toimi ensimmäisellä kerralla makron hyväksynnän jälkeen.
@@ -23,6 +24,7 @@ Option Explicit
 ' https://github.com/jussivirkkala/excel/
 ' https://twitter.com/jussivirkkala
 '
+' 2020-06-13 Added button
 ' 2020-03-15 Dialog for no cases. Time of last get.
 ' 2020-03-14 More error handling. Modified text.
 ' 2020-03-13 First version
@@ -35,15 +37,15 @@ Sub Workbook_open()
     If MsgBox("Haluatko hakea https://github.com/HS-Datadesk/koronavirus-avoindata myös 15 min välein? Excel on oltava auki. Saat uusista tapauksista ilmoituksen.", _
     vbYesNo, Application.Name) = vbYes Then
         Timer
+        DIALOG = False
     Else
-        Update
+        UpdateDialog
     End If
 End Sub
 
 
 Sub Timer()
     Update
-    DIALOG = False
     On Error GoTo err:
     Application.OnTime Now + TimeValue("00:15:00"), "ThisWorkbook.Timer"
     Exit Sub
@@ -51,6 +53,11 @@ err:
     MsgBox ("Ajastus ei onnistunut. Avaa tallennettu tiedosto uudestaan")
 End Sub
 
+Sub UpdateDialog()
+    DIALOG = True
+    Update
+    DIALOG = False
+End Sub
 
 Sub Update()
     Dim DATA As String
@@ -71,7 +78,7 @@ Sub Update()
     
     Dim n As Long
     n = Sheets("Data").Range("Tapauksia")
-        
+    
     Dim row As Long
     row = 1
     Dim subject As Object
