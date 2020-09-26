@@ -4,9 +4,11 @@ Do not enable macro content before inspecting the code!
 
 Älä aktivoi makroja ennenkuin olet tarkistanut koodin!
 
-# Exposure-checks
+# all-exposure-checks
 
 Parsing COVID-19 exposure notifications, Exposure checks, Export exposure checks file all-exposure-checks.json into Excel graph. No Excel macros needed. 
+
+- 2020-09-36 First version. Supportin FIN, UK until end of 2020 (formatting of times).
 
 # HS-koronavirus-avoindata
 
