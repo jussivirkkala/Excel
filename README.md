@@ -6,15 +6,15 @@ Do not enable macro content before inspecting the code!
 
 # all-exposure-checks
 
-Parsing COVID-19 exposure notifications, Exposure checks, Export exposure checks file all-exposure-checks.json into Excel graph. No Excel macros needed. 
+Parsing COVID-19 exposure notifications all-exposure-checks.json into Excel graph. No Excel macros needed. Having history data of https://www.koronavilkku.fi/.
 
-- 2020-09-36 First version. Supportin FIN, UK until end of 2020 (formatting of times).
+- 2020-09-26 First version. Supporting FIN, UK until end of 2020 (format of times).
 
 # HS-koronavirus-avoindata
 
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. 
 
-- 2020-03-31 Datalähdettä ei päivitetä. THL sijainti https://thl.fi/fi/tilastot-ja-data/aineistot-ja-palvelut/avoin-data/varmistetut-koronatapaukset-suomessa-covid-19-
+- 2020-04-01 Datalähdettä ei päivitetä. THL uuden datan sijainti https://thl.fi/fi/tilastot-ja-data/aineistot-ja-palvelut/avoin-data/varmistetut-koronatapaukset-suomessa-covid-19-
 - 2020-03-31 Korjattu kuvaajan x-akselin vaihtuminen esim. tallennuksen yhteydessä.
 - 2020-03-16 Lisätty Päivitä painike. Lisätty sairaahoitopiirit Tilastot välilehdelle. Joissain koneissa "Virhe lukea ... Toiminnon aikakatkaisu" vaikka sivulle https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData pääsee.
 - 2020-03-15 Lisätty välilehdet. Puuttuvat id numerot eivät enää aiheuta tyhjiä riviä Data välilehdellä. Tämä helpottaa lajittelua ja auto filter käyttöä. Ei toimi myöskään Mac koneissa: Can't find project or library ServerXMLHTTP60
