@@ -4,9 +4,13 @@ Do not enable macro content before inspecting the code!
 
 Älä aktivoi makroja ennenkuin olet tarkistanut koodin!
 
+# Exposure-checks
+
+Parsing exposure notification all-exposure-checks.json. No Excel macros needed. 
+
 # HS-koronavirus-avoindata
 
-https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi.
+https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. 2020-03-31 datalähde ei päivity.
 
 - 2020-03-31 Korjattu kuvaajan x-akselin vaihtuminen esim. tallennuksen yhteydessä.
 - 2020-03-16 Lisätty Päivitä painike. Lisätty sairaahoitopiirit Tilastot välilehdelle. Joissain koneissa "Virhe lukea ... Toiminnon aikakatkaisu" vaikka sivulle https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData pääsee.
