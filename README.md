@@ -15,6 +15,7 @@ Parsing COVID-19 exposure notification file all-exposure-checks.json into Excel 
 
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. 
 
+- 2020-09-29 Päivitetty datalähde https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2. Lähteessä ei enää maata eikä lähdettä. Poistettu automaattinen päivitys sekä ajastus.
 - 2020-04-01 Datalähdettä ei päivitetä. THL uuden datan sijainti https://thl.fi/fi/tilastot-ja-data/aineistot-ja-palvelut/avoin-data/varmistetut-koronatapaukset-suomessa-covid-19-
 - 2020-03-31 Korjattu kuvaajan x-akselin vaihtuminen esim. tallennuksen yhteydessä.
 - 2020-03-16 Lisätty Päivitä painike. Lisätty sairaahoitopiirit Tilastot välilehdelle. Joissain koneissa "Virhe lukea ... Toiminnon aikakatkaisu" vaikka sivulle https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData pääsee.
@@ -33,6 +34,7 @@ Option Explicit
 ' https://github.com/jussivirkkala/excel/
 ' https://twitter.com/jussivirkkala
 '
+' 2020-09-29 Disabled automatic update and timer
 ' 2020-06-13 Added button
 ' 2020-03-15 Dialog for no cases. Time of last get.
 ' 2020-03-14 More error handling. Modified text.
@@ -41,7 +43,7 @@ Option Explicit
 Dim DIALOG As Boolean
 
 
-Sub Workbook_open()
+Sub Workbook_open_off()
     DIALOG = True
     If MsgBox("Haluatko hakea https://github.com/HS-Datadesk/koronavirus-avoindata myös 15 min välein? Excel on oltava auki. Saat uusista tapauksista ilmoituksen.", _
     vbYesNo, Application.Name) = vbYes Then
