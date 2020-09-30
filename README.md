@@ -6,7 +6,7 @@ Do not enable macro content before inspecting the code!
 
 #  [all-exposure-checks.xlsx](https://github.com/jussivirkkala/excel/blob/master/all-exposure-checks.xlsx)
 
-![all-exposure-checks](all-exposure-checks.png)
+![all-exposure-checks](all-exposure-checks/all-exposure-checks.png)
 
 Parsing COVID-19 exposure notification file all-exposure-checks.json into Excel graph. No Excel macro needed. Having history data of https://www.koronavilkku.fi/.
 
