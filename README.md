@@ -6,6 +6,8 @@ Do not enable macro content before inspecting the code!
 
 #  [all-exposure-checks.xlsx](https://github.com/jussivirkkala/excel/blob/master/all-exposure-checks.xlsx)
 
+![all-exposure-checks](all-exposure-checks.png)
+
 Parsing COVID-19 exposure notification file all-exposure-checks.json into Excel graph. No Excel macro needed. Having history data of https://www.koronavilkku.fi/.
 
 - 2020-09-27 Changed to line graph. See #koronavilkku information https://thl.fi/fi/web/hyvinvoinnin-ja-terveyden-edistamisen-johtaminen/ajankohtaista/koronan-vaikutukset-yhteiskuntaan-ja-palveluihin#Koronavilkkua
@@ -14,6 +16,7 @@ Parsing COVID-19 exposure notification file all-exposure-checks.json into Excel 
 # [HS-koronavirus-avoindata.xlsm](https://github.com/jussivirkkala/excel/blob/master/hs-koronavirus-avoindata.xlsm)
 
 ![hs-koronavirus-avoindata](hs-koronavirus-avoindata.png)
+
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. 
 
 - 2020-09-30 Corrected counting cases.
