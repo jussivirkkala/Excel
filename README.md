@@ -4,7 +4,7 @@ Do not enable macro content before inspecting the code!
 
 Älä aktivoi makroja ennenkuin olet tarkistanut koodin!
 
-#  [all-exposure-checks.xlsx](https://github.com/jussivirkkala/excel/blob/master/all-exposure-checks.xlsx)
+#  [all-exposure-checks.xlsx](https://github.com/jussivirkkala/excel/blob/master/all-exposure-checks/all-exposure-checks.xlsx)
 
 ![all-exposure-checks](all-exposure-checks/all-exposure-checks.png)
 
