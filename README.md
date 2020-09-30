@@ -5,6 +5,7 @@ Do not enable macro content before inspecting the code!
 Älä aktivoi makroja ennenkuin olet tarkistanut koodin!
 
 #  [all-exposure-checks.xlsx](https://github.com/jussivirkkala/excel/blob/master/all-exposure-checks.xlsx)
+(hs-koronavirus-avoindata.png)
 
 Parsing COVID-19 exposure notification file all-exposure-checks.json into Excel graph. No Excel macro needed. Having history data of https://www.koronavilkku.fi/.
 
