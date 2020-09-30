@@ -15,6 +15,7 @@ Parsing COVID-19 exposure notification file all-exposure-checks.json into Excel 
 
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. 
 
+- 2020-09-30 Corrected counting cases.
 - 2020-09-29 Päivitetty datalähde https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2. Lähteessä ei enää maata eikä lähdettä. Poistettu automaattinen päivitys sekä ajastus. Päiväys on muuttunut tilastointipäiväksi https://thl.fi/fi/web/infektiotaudit-ja-rokotukset/ajankohtaista/ajankohtaista-koronaviruksesta-covid-19/tilannekatsaus-koronaviruksesta
 - 2020-04-01 Datalähdettä ei päivitetä. THL uuden datan sijainti https://thl.fi/fi/tilastot-ja-data/aineistot-ja-palvelut/avoin-data/varmistetut-koronatapaukset-suomessa-covid-19-
 - 2020-03-31 Korjattu kuvaajan x-akselin vaihtuminen esim. tallennuksen yhteydessä.
