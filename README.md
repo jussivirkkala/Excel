@@ -13,9 +13,9 @@ Parsing COVID-19 exposure notification file all-exposure-checks.json into Excel 
 - 2020-09-27 Changed to line graph. See #koronavilkku information https://thl.fi/fi/web/hyvinvoinnin-ja-terveyden-edistamisen-johtaminen/ajankohtaista/koronan-vaikutukset-yhteiskuntaan-ja-palveluihin#Koronavilkkua
 - 2020-09-26 First version. Supporting FIN, UK until end of 2020 (format of times).
 
-# [HS-koronavirus-avoindata.xlsm](https://github.com/jussivirkkala/excel/blob/master/hs-koronavirus-avoindata.xlsm)
+# [HS-koronavirus-avoindata.xlsm](https://github.com/jussivirkkala/excel/blob/master/hs-koronavirus-avoindata/hs-koronavirus-avoindata.xlsm)
 
-![hs-koronavirus-avoindata](hs-koronavirus-avoindata.png)
+![hs-koronavirus-avoindata](hs-koronavirus-avoindata/hs-koronavirus-avoindata.png)
 
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. 
 
