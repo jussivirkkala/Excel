@@ -10,7 +10,7 @@ Do not enable macro content before inspecting the code!
 
 Parsing COVID-19 Android exposure notification file all-exposure-checks.json into Excel graph. No Excel macro needed. Having history data of https://www.koronavilkku.fi/.
 
-- 2020-10-03 You can link also directly to png.
+- 2020-10-03 You can link directly to updated png.
 - 2020-10-01 Calculating 7 days sum and #koronavilkku tweet template.
 - 2020-09-27 Changed to line graph. See #koronavilkku information https://thl.fi/fi/web/hyvinvoinnin-ja-terveyden-edistamisen-johtaminen/ajankohtaista/koronan-vaikutukset-yhteiskuntaan-ja-palveluihin#Koronavilkkua
 - 2020-09-26 First version. Supporting FIN, UK until end of 2020 (format of times).
@@ -21,6 +21,7 @@ Parsing COVID-19 Android exposure notification file all-exposure-checks.json int
 
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. 
 
+- 2020-10-03 You can link directly to updated png.
 - 2020-09-30 Corrected counting cases.
 - 2020-09-29 Päivitetty datalähde https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2. Lähteessä ei enää maata eikä lähdettä. Poistettu automaattinen päivitys sekä ajastus. Päiväys on muuttunut tilastointipäiväksi https://thl.fi/fi/web/infektiotaudit-ja-rokotukset/ajankohtaista/ajankohtaista-koronaviruksesta-covid-19/tilannekatsaus-koronaviruksesta
 - 2020-04-01 Datalähdettä ei päivitetä. THL uuden datan sijainti https://thl.fi/fi/tilastot-ja-data/aineistot-ja-palvelut/avoin-data/varmistetut-koronatapaukset-suomessa-covid-19-
