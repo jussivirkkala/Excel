@@ -10,6 +10,7 @@ Do not enable macro content before inspecting the code!
 
 Parsing COVID-19 Android exposure notification file all-exposure-checks.json into Excel graph. No Excel macro needed. Having history data of https://www.koronavilkku.fi/.
 
+- 2020-10-03 You can link also directly to png.
 - 2020-10-01 Calculating 7 days sum and #koronavilkku tweet template.
 - 2020-09-27 Changed to line graph. See #koronavilkku information https://thl.fi/fi/web/hyvinvoinnin-ja-terveyden-edistamisen-johtaminen/ajankohtaista/koronan-vaikutukset-yhteiskuntaan-ja-palveluihin#Koronavilkkua
 - 2020-09-26 First version. Supporting FIN, UK until end of 2020 (format of times).
