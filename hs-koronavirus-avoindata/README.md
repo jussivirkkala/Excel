@@ -27,23 +27,26 @@ Option Explicit
 
 ' Hakee HS datasta Korona tapaukset
 ' https://github.com/HS-Datadesk/koronavirus-avoindata
-' https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData
+' https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2
 '
 ' https://github.com/jussivirkkala/excel/
 ' https://twitter.com/jussivirkkala
 '
-' 2020-09-29 Disabled automatic update and timer
-' 2020-06-13 Added button
+' 2020-10-04 Updating to https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/processedThlData. From 35 to 61
+' 2020-10-03 Saving earlier daily increases.
+' 2020-09-29 Changed data source to https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2.
+' 2020-06-13 Added button.
 ' 2020-03-15 Dialog for no cases. Time of last get.
 ' 2020-03-14 More error handling. Modified text.
-' 2020-03-13 First version
+' 2020-03-13 First version.
 
 Dim DIALOG As Boolean
 
 
+' 2020-09-29 No automatic update
 Sub Workbook_open_off()
     DIALOG = True
-    If MsgBox("Haluatko hakea https://github.com/HS-Datadesk/koronavirus-avoindata myös 15 min välein? Excel on oltava auki. Saat uusista tapauksista ilmoituksen.", _
+    If MsgBox("Haluatko hakea https://github.com/HS-Datadesk/koronavirus-avoindata myös 5 minuutin välein? Excel on oltava auki. Saat uusista tapauksista ilmoituksen.", _
     vbYesNo, Application.Name) = vbYes Then
         Timer
         DIALOG = False
@@ -56,7 +59,7 @@ End Sub
 Sub Timer()
     Update
     On Error GoTo err:
-    Application.OnTime Now + TimeValue("00:15:00"), "ThisWorkbook.Timer"
+    Application.OnTime Now + TimeValue("00:05:00"), "ThisWorkbook.Timer"
     Exit Sub
 err:
     MsgBox ("Ajastus ei onnistunut. Avaa tallennettu tiedosto uudestaan")
@@ -68,21 +71,33 @@ Sub UpdateDialog()
     DIALOG = False
 End Sub
 
+' 2020-10-01 Copy previous data
 Sub Update()
     Dim DATA As String
     DATA = "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData"
+    DATA = "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2"
+    DATA = "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/processedThlData"
+            
+        Dim i As Integer
+        For i = 63 To 35 Step -1
+            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 16) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 2)
+            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 17) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 3)
+            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 18) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 4)
+        Next i
+            
     
     ' GET data
-    On Error GoTo err_get
+  '  On Error GoTo err_get
     Dim request
     Set request = New ServerXMLHTTP60
     request.Open "GET", DATA, False
     request.send
 
     ' Parse JSON
-    On Error GoTo err_json
+    ' On Error GoTo err_json
     Dim sc, json
     Set sc = CreateObject("ScriptControl"): sc.Language = "JScript"
+    ' request.responseTex = Replace(request.responseTex, ".value", ".Value")
     Set json = sc.Eval("(" + request.responseText + ")")
     
     Dim n As Long
@@ -92,30 +107,46 @@ Sub Update()
     row = 1
     Dim subject As Object
     Application.Calculation = xlCalculationManual
-    For Each subject In CallByName(json, "confirmed", VbGet)
+    For Each subject In CallByName(json.confirmed, "Kaikki sairaanhoitopiirit", VbGet)
         row = row + 1
-        Sheets("Data").Cells(row, 1) = subject.id
-        Dim d As String
+        Sheets("Data").Cells(row, 1) = CallByName(subject, "value", VbGet)
+         Dim d As String
         d = CallByName(subject, "date", VbGet)
         Sheets("Data").Cells(row, 2) = d
         Sheets("Data").Cells(row, 3) = subject.healthCareDistrict
-        Sheets("Data").Cells(row, 4) = subject.infectionSourceCountry
-        Sheets("Data").Cells(row, 5) = subject.infectionSource
+'        Sheets("Data").Cells(row, 4) = subject.infectionSourceCountry
+'        Sheets("Data").Cells(row, 5) = subject.infectionSource
         Sheets("Data").Cells(row, 6) = DateValue(Mid(d, 1, 10)) + TimeValue(Mid(d, 12, 8))
     Next
 
     On Error GoTo err_other
     Application.Calculation = xlCalculationAutomatic
-    Application.CalculateFull
+    Application.Calculate ' 2020-03-30 .CalculatedFull
     If Sheets("Data").Range("Tapauksia") <> n Then
         MsgBox "Tapaukset ovat lisäntyneet " + Format(Sheets("Data").Range("Tapauksia").Value - n) + " kappaletta " _
         + Sheets("Data").Range("Paivitetty").Text + " jälkeen.", , Application.Name
         Sheets("Data").Range("Paivitetty") = datetime.Now()
+        
+        ' 2020- Copy previous data
+        For i = 63 To 35 Step -1
+            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 13) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 16)
+            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 14) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 17)
+            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 15) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 18)
+        Next i
+        For i = 35 To 61
+            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 11) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i + 1, 11)
+            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 12) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i + 1, 12)
+        Next i
+
+        
     Else
         If DIALOG Then MsgBox "Ei uusia tilastoituja tapauksia " + Sheets("Data").Range("Paivitetty").Text + " jälkeen.", , Application.Name
     End If
-    
+'    ActiveSheet.ChartObjects("Chart 1").Activate
+'    ActiveChart.Axes(xlCategory).Select
+'    ActiveChart.Axes(xlCategory).ReversePlotOrder = True
     Exit Sub
+
 err_get:
     MsgBox "Virhe lukea " + DATA + ": " + err.Description
     Exit Sub
