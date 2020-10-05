@@ -15,5 +15,5 @@ Parsing COVID-19 Android exposure notification file all-exposure-checks.json int
 
 ![hs-koronavirus-avoindata](hs-koronavirus-avoindata/hs-koronavirus-avoindata.png)
 
-https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi.  [More in hs-koronavirus-avoindata/](hs-koronavirus-avoindata/).
+https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. Katso Koronasta https://thl.fi/fi/web/infektiotaudit-ja-rokotukset/ajankohtaista/ajankohtaista-koronaviruksesta-covid-19/tilannekatsaus-koronaviruksesta. [More in hs-koronavirus-avoindata/](hs-koronavirus-avoindata/).
 
