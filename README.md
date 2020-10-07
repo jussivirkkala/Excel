@@ -8,12 +8,12 @@ Do not enable macro content before inspecting the code!
 
 ![all-exposure-checks](all-exposure-checks/all-exposure-checks.png)
 
-Parsing COVID-19 Android exposure notification file all-exposure-checks.json into Excel graph. No Excel macro needed. History data of https://www.koronavilkku.fi/. [More in all-exposure-checks/](all-exposure-checks/).
+Parsing COVID-19 Android exposure notification file all-exposure-checks.json into Excel graph. [More in all-exposure-checks/](all-exposure-checks/).
 
 
 # [HS-koronavirus-avoindata.xlsm](hs-koronavirus-avoindata/hs-koronavirus-avoindata.xlsm)
 
 ![hs-koronavirus-avoindata](hs-koronavirus-avoindata/hs-koronavirus-avoindata.png)
 
-https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. Katso Koronasta https://thl.fi/fi/web/infektiotaudit-ja-rokotukset/ajankohtaista/ajankohtaista-koronaviruksesta-covid-19/tilannekatsaus-koronaviruksesta. [More in hs-koronavirus-avoindata/](hs-koronavirus-avoindata/).
+https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. [More in hs-koronavirus-avoindata/](hs-koronavirus-avoindata/).
 
