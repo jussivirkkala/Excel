@@ -34,6 +34,7 @@ Option Explicit
 ' https://github.com/jussivirkkala/excel/
 ' https://twitter.com/jussivirkkala
 '
+' 2020-10-11 Storing previous 28 days values
 ' 2020-10-04 Updating to https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/processedThlData. From 35 to 61
 ' 2020-10-03 Saving earlier daily increases.
 ' 2020-09-29 Changed data source to https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2.
@@ -80,23 +81,26 @@ Sub Update()
     DATA = "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2"
     DATA = "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/processedThlData"
             
-        Dim i As Integer
-        For i = 63 To 35 Step -1
-            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 16) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 2)
-            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 17) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 3)
-            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 18) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 4)
-        Next i
+    Dim i As Integer
+    ' 2020-10-11 from 34 to 37, 62 to 65
+    For i = 37 To 65
+        ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 16) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 2)
+        ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 17) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 3)
+        ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 18) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 4)
+    Next i
             
     
     ' GET data
-  '  On Error GoTo err_get
+    '
+    On Error GoTo err_get
     Dim request
     Set request = New ServerXMLHTTP60
     request.Open "GET", DATA, False
     request.send
 
     ' Parse JSON
-    ' On Error GoTo err_json
+    '
+    On Error GoTo err_json
     Dim sc, json
     Set sc = CreateObject("ScriptControl"): sc.Language = "JScript"
     ' request.responseTex = Replace(request.responseTex, ".value", ".Value")
@@ -128,19 +132,27 @@ Sub Update()
         MsgBox "Tapaukset ovat lisäntyneet " + Format(Sheets("Data").Range("Tapauksia").Value - n) + " kappaletta " _
         + Sheets("Data").Range("Paivitetty").Text + " jälkeen.", , Application.Name
         Sheets("Data").Range("Paivitetty") = datetime.Now()
-        
         ' 2020- Copy previous data
-        For i = 63 To 35 Step -1
+        Dim j As Integer
+        For j = 13 To 1000
+            If ActiveWorkbook.Sheets("Kuvaajat").Cells(65, j) = "" Then Exit For
+        Next j
+        ' 2020-10-11 from 34 to 37, 62 to 65
+        For i = 37 To 65
             ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 13) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 16)
             ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 14) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 17)
             ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 15) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 18)
+            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, j) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 16)
+            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, j + 1) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 17)
+            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, j + 2) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 18)
+            
         Next i
-        For i = 35 To 61
-            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 11) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i + 1, 11)
-            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 12) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i + 1, 12)
-        Next i
-
-        
+        ' 2020-10-05 Value
+        'For i = 35 To 61
+        '    ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 10) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i + 1, 10).Value
+        '    ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 11) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i + 1, 11).Value
+        '    ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 12) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i + 1, 12).Value
+        'Next i
     Else
         If DIALOG Then MsgBox "Ei uusia tilastoituja tapauksia " + Sheets("Data").Range("Paivitetty").Text + " jälkeen.", , Application.Name
     End If
