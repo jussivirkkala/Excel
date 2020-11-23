@@ -4,7 +4,7 @@
 
 Parsing COVID-19 Android exposure notification file all-exposure-checks.json into Excel graph. No Excel macro needed. History data of https://www.koronavilkku.fi/. 
 
-- 2020-10-22 Displaying values only on local minimum (below trace) and maximum (above trace).
+- 2020-11-22 Displaying values only on local minimum (below trace) and maximum (above trace).
 - 2020-10-17 Number of shared daily keys depends on start of symptoms https://twitter.com/spheroid/status/1317109409869406209.
 - 2020-10-05 Own folder https://github.com/jussivirkkala/excel/tree/master/all-exposure-checks.
 - 2020-10-03 You can link directly to updated png.
