@@ -15,5 +15,5 @@ Parsing COVID-19 Android exposure notification file all-exposure-checks.json int
 
 ![hs-koronavirus-avoindata](hs-koronavirus-avoindata/hs-koronavirus-avoindata.png)
 
-https://github.com/HS-Datadesk/koronavirus-avoindata datan retrieval ja visualization. [More in hs-koronavirus-avoindata/](hs-koronavirus-avoindata/).
+https://github.com/HS-Datadesk/koronavirus-avoindata data retrieval ja visualization. [More in hs-koronavirus-avoindata/](hs-koronavirus-avoindata/).
 
