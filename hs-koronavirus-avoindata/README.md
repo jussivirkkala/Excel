@@ -23,7 +23,7 @@ https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisoint
 - 2020-03-14 Lisätty graafi. Joissain koneissa ei toimi: "Virhe tulkita dataa: ActiveX component can't create object".
 - 2020-03-13 Ensimmäinen versio. Automaattinen ajastus ei toimi ensimmäisellä kerralla makron hyväksynnän jälkeen.
 
-VBA koodi alla. On oltava nimettynä solu Data väliehdellä Tapaukset, jossa kaava =sum(A:A). Data kirjoitetaan rivistä 2 eteenpäin sarakkeille A-F
+VBA koodi alla. On oltava nimettynä solu Data väliehdellä Tapauksia, jossa kaava =sum(A:A). Data kirjoitetaan rivistä 2 eteenpäin sarakkeille A-F
 ```
 Option Explicit
 
@@ -34,6 +34,7 @@ Option Explicit
 ' https://github.com/jussivirkkala/excel/
 ' https://twitter.com/jussivirkkala
 '
+' 2020-10-27 Removed ActiveWorkbook.
 ' 2020-10-11 Storing previous 28 days values
 ' 2020-10-04 Updating to https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/processedThlData. From 35 to 61
 ' 2020-10-03 Saving earlier daily increases.
@@ -84,9 +85,9 @@ Sub Update()
     Dim i As Integer
     ' 2020-10-11 from 34 to 37, 62 to 65
     For i = 37 To 65
-        ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 16) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 2)
-        ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 17) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 3)
-        ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 18) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 4)
+        Sheets("Kuvaajat").Cells(i, 16) = Sheets("Kuvaajat").Cells(i, 2)
+        Sheets("Kuvaajat").Cells(i, 17) = Sheets("Kuvaajat").Cells(i, 3)
+        Sheets("Kuvaajat").Cells(i, 18) = Sheets("Kuvaajat").Cells(i, 4)
     Next i
             
     
@@ -135,23 +136,23 @@ Sub Update()
         ' 2020- Copy previous data
         Dim j As Integer
         For j = 13 To 1000
-            If ActiveWorkbook.Sheets("Kuvaajat").Cells(65, j) = "" Then Exit For
+            If Sheets("Kuvaajat").Cells(65, j) = "" Then Exit For
         Next j
         ' 2020-10-11 from 34 to 37, 62 to 65
         For i = 37 To 65
-            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 13) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 16)
-            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 14) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 17)
-            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 15) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 18)
-            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, j) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 16)
-            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, j + 1) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 17)
-            ActiveWorkbook.Sheets("Kuvaajat").Cells(i, j + 2) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 18)
+            Sheets("Kuvaajat").Cells(i, 13) = Sheets("Kuvaajat").Cells(i, 16)
+            Sheets("Kuvaajat").Cells(i, 14) = Sheets("Kuvaajat").Cells(i, 17)
+            Sheets("Kuvaajat").Cells(i, 15) = Sheets("Kuvaajat").Cells(i, 18)
+            Sheets("Kuvaajat").Cells(i, j) = Sheets("Kuvaajat").Cells(i, 16)
+            Sheets("Kuvaajat").Cells(i, j + 1) = Sheets("Kuvaajat").Cells(i, 17)
+            Sheets("Kuvaajat").Cells(i, j + 2) = Sheets("Kuvaajat").Cells(i, 18)
             
         Next i
         ' 2020-10-05 Value
         'For i = 35 To 61
-        '    ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 10) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i + 1, 10).Value
-        '    ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 11) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i + 1, 11).Value
-        '    ActiveWorkbook.Sheets("Kuvaajat").Cells(i, 12) = ActiveWorkbook.Sheets("Kuvaajat").Cells(i + 1, 12).Value
+        '    Sheets("Kuvaajat").Cells(i, 10) = Sheets("Kuvaajat").Cells(i + 1, 10).Value
+        '    Sheets("Kuvaajat").Cells(i, 11) = Sheets("Kuvaajat").Cells(i + 1, 11).Value
+        '    Sheets("Kuvaajat").Cells(i, 12) = Sheets("Kuvaajat").Cells(i + 1, 12).Value
         'Next i
     Else
         If DIALOG Then MsgBox "Ei uusia tilastoituja tapauksia " + Sheets("Data").Range("Paivitetty").Text + " jälkeen.", , Application.Name
