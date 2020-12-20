@@ -10,6 +10,9 @@ Do not enable macro content before inspecting the code!
 
 ![hs-koronavirus-avoindata](hs-koronavirus-avoindata-paivat.png)
 
+![hs-koronavirus-avoindata-7](Päiväkohtaiset-7.png)
+
+
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. 
 
 - 2020-10-04 Updated data source to https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/processedThlData.
