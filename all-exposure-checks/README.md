@@ -2,6 +2,9 @@
 
 ![all-exposure-checks](all-exposure-checks.png)
 
+![all-exposure-checks-tartunnat](all-exposure-checks-tartunnat.png)
+
+
 Parsing COVID-19 Android exposure notification file all-exposure-checks.json into Excel graph. No Excel macro needed. History data of https://www.koronavilkku.fi/. 
 
 - 2020-11-24 Removed use of MAXIFS. Now working also with Excel 2016.
