@@ -7,6 +7,7 @@
 
 Parsing COVID-19 Android exposure notification file all-exposure-checks.json into Excel graph. No Excel macro needed. History data of https://www.koronavilkku.fi/. 
 
+- 2020-01-07 Koronavilkku will included also EU daily keys so reporting key counts makes no sense anymore!
 - 2020-11-24 Removed use of MAXIFS. Now working also with Excel 2016.
 - 2020-11-22 Displaying values only on local minimum (below trace) and maximum (above trace).
 - 2020-10-17 Number of shared daily keys depends on start of symptoms https://twitter.com/spheroid/status/1317109409869406209.
