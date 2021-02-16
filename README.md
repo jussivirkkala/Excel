@@ -8,7 +8,7 @@ Do not enable macro content before inspecting the code!
 
 ![all-exposure-checks](all-exposure-checks/all-exposure-checks.png)
 
-Parsing COVID-19 Android exposure notification file all-exposure-checks.json into Excel graph. [More in all-exposure-checks/](all-exposure-checks/).
+Parsing COVID-19 Android exposure notification file all-exposure-checks.json into Excel graph. [More in all-exposure-checks/](all-exposure-checks/). Not update anymore.
 
 
 # [HS-koronavirus-avoindata.xlsm](hs-koronavirus-avoindata/hs-koronavirus-avoindata.xlsm)
