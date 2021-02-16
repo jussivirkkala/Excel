@@ -4,6 +4,8 @@ Do not enable macro content before inspecting the code!
 
 Älä aktivoi makroja ennenkuin olet tarkistanut koodin!
 
+2021-02-16 Renamed as main branch.
+
 #  [all-exposure-checks.xlsx](all-exposure-checks/all-exposure-checks.xlsx)
 
 ![all-exposure-checks](all-exposure-checks/all-exposure-checks.png)
