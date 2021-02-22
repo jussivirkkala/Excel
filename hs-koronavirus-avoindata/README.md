@@ -10,7 +10,7 @@ Do not enable macro content before inspecting the code!
 
 ![hs-koronavirus-avoindata](hs-koronavirus-avoindata-paivat.png)
 
-![hs-koronavirus-avoindata-7](Päiväkohtaiset-7.png)
+![hs-koronavirus-avoindata-7](hs-koronavirus-avoindata-7.png)
 
 
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. 
