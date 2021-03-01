@@ -10,7 +10,7 @@ Do not enable macro content before inspecting the code!
 
 ![hs-koronavirus-avoindata](hs-koronavirus-avoindata/hs-koronavirus-avoindata.png)
 
-https://github.com/HS-Datadesk/koronavirus-avoindata data retrieval ja visualization. [More in hs-koronavirus-avoindata/](hs-koronavirus-avoindata/).
+https://github.com/HS-Datadesk/koronavirus-avoindata data retrieval ja visualization. [More in hs-koronavirus-avoindata/](hs-koronavirus-avoindata/). See also (https://github.com/jussivirkkala/R/tree/main/hs-koronavirus-avoindata)
 
 #  [all-exposure-checks.xlsx](all-exposure-checks/all-exposure-checks.xlsx)
 
