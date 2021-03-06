@@ -8,13 +8,16 @@ Do not enable macro content before inspecting the code!
 
 ![hs-koronavirus-avoindata](hs-koronavirus-avoindata.png)
 
-![hs-koronavirus-avoindata](hs-koronavirus-avoindata-paivat.png)
+![hs-koronavirus-avoindata](hs-koronavirus-avoindata-kaikki.png)
+
+![hs-koronavirus-avoindata](hs-koronavirus-avoindata-hus.png)
 
 ![hs-koronavirus-avoindata-7](hs-koronavirus-avoindata-7.png)
 
 
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. 
 
+- 2021-03-06 Similar analyses in R https://github.com/jussivirkkala/R/. 
 - 2020-10-04 Updated data source to https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/processedThlData.
 - 2020-10-03 You can link directly to updated png.
 - 2020-09-30 Corrected counting cases.
