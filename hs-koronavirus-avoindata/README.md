@@ -6,15 +6,6 @@ Do not enable macro content before inspecting the code!
 
 # [HS-koronavirus-avoindata.xlsm](hs-koronavirus-avoindata.xlsm)
 
-![hs-koronavirus-avoindata](hs-koronavirus-avoindata.png)
-
-![hs-koronavirus-avoindata](hs-koronavirus-avoindata-kaikki.png)
-
-![hs-koronavirus-avoindata](hs-koronavirus-avoindata-hus.png)
-
-![hs-koronavirus-avoindata-7](hs-koronavirus-avoindata-7.png)
-
-
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. 
 
 - 2021-04-22 Does not work in 64 bit Excel.
@@ -29,6 +20,15 @@ https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisoint
 - 2020-03-15 Lisätty välilehdet. Puuttuvat id numerot eivät enää aiheuta tyhjiä riviä Data välilehdellä. Tämä helpottaa lajittelua ja auto filter käyttöä. Ei toimi myöskään Mac koneissa: Can't find project or library ServerXMLHTTP60
 - 2020-03-14 Lisätty graafi. Joissain koneissa ei toimi: "Virhe tulkita dataa: ActiveX component can't create object".
 - 2020-03-13 Ensimmäinen versio. Automaattinen ajastus ei toimi ensimmäisellä kerralla makron hyväksynnän jälkeen.
+
+
+![hs-koronavirus-avoindata](hs-koronavirus-avoindata.png)
+
+![hs-koronavirus-avoindata](hs-koronavirus-avoindata-kaikki.png)
+
+![hs-koronavirus-avoindata](hs-koronavirus-avoindata-hus.png)
+
+![hs-koronavirus-avoindata-7](hs-koronavirus-avoindata-7.png)
 
 VBA koodi alla. On oltava nimettynä solu Data väliehdellä Tapauksia, jossa kaava =sum(A:A). Data kirjoitetaan rivistä 2 eteenpäin sarakkeille A-F
 ```
