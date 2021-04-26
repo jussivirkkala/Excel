@@ -17,6 +17,7 @@ Do not enable macro content before inspecting the code!
 
 https://github.com/HS-Datadesk/koronavirus-avoindata datan nouto ja visualisointi. 
 
+- 2021-04-22 Does not work in 64 bit Excel.
 - 2021-03-06 Similar analyses in R https://github.com/jussivirkkala/R/. 
 - 2020-10-04 Updated data source to https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/processedThlData.
 - 2020-10-03 You can link directly to updated png.
