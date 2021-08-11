@@ -6,11 +6,11 @@ Do not enable macro content before inspecting the code!
 
 2021-02-16 Renamed as main branch.
 
-# [HS-koronavirus-avoindata.xlsm](hs-koronavirus-avoindata/hs-koronavirus-avoindata.xlsm)
+# [hs-koronavirus-avoindata/readme.md](hs-koronavirus-avoindata/readme.md)
 
 ![hs-koronavirus-avoindata](hs-koronavirus-avoindata/hs-koronavirus-avoindata.png)
 
-https://github.com/HS-Datadesk/koronavirus-avoindata data retrieval ja visualization. [More in hs-koronavirus-avoindata/](hs-koronavirus-avoindata/). See also (https://github.com/jussivirkkala/R/tree/main/hs-koronavirus-avoindata)
+https://github.com/HS-Datadesk/koronavirus-avoindata data retrieval ja visualization. [HS-koronavirus-avoindata.xlsm](hs-koronavirus-avoindata/hs-koronavirus-avoindata.xlsm). See also (https://github.com/jussivirkkala/R/tree/main/hs-koronavirus-avoindata)
 
 #  [all-exposure-checks.xlsx](all-exposure-checks/all-exposure-checks.xlsx)
 
